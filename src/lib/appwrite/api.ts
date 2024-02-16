@@ -451,44 +451,44 @@ export async function signOutAccount() {
 // // ============================================================
 
 // // ============================== GET USERS
-// export async function getUsers(limit?: number) {
-//   const queries: any[] = [Query.orderDesc("$createdAt")];
+export async function getUsers(limit?: number) {
+  const queries: any[] = [Query.orderDesc("$createdAt")];
 
-//   if (limit) {
-//     queries.push(Query.limit(limit));
-//   }
+  if (limit) {
+    queries.push(Query.limit(limit));
+  }
 
-//   try {
-//     const users = await databases.listDocuments(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.userCollectionId,
-//       queries
-//     );
+  try {
+    const users = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.userCollectionId,
+      queries
+    );
 
-//     if (!users) throw Error;
+    if (!users) throw Error;
 
-//     return users;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // // ============================== GET USER BY ID
-// export async function getUserById(userId: string) {
-//   try {
-//     const user = await databases.getDocument(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.userCollectionId,
-//       userId
-//     );
+export async function getUserById(userId: string) {
+  try {
+    const user = await databases.getDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.userCollectionId,
+      userId
+    );
 
-//     if (!user) throw Error;
+    if (!user) throw Error;
 
-//     return user;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return user;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // // ============================== UPDATE USER
 // export async function updateUser(user: IUpdateUser) {
